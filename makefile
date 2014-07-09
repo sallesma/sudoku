@@ -3,13 +3,13 @@ run: compile
 	./main sudoku_basic.txt
 
 compile:
-	gcc -o main src/main.c src/solve.c
+	gcc -o main src/main.c src/solve.c src/utils.c
 
 autocompile:
-	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c; done
+	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c src/utils.c; done
 
 autorun:
-	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c; ./main sudoku_basic.txt; done
+	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c src/utils.c; ./main sudoku_basic.txt; done
 
 pull:
 	git pull origin master

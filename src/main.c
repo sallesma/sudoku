@@ -1,12 +1,5 @@
 #include"main.h"
 
-void init_possibilities(int * p) {
-	int i, j;
- 	for(i=0 ; i<GLOBAL_SIZE ; i++)
-		for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
-         p[i*POSSIBILITY_LENGTH+j] = (j+8)%LINE_LENGTH+1; //we want 9 1 2 3 4 5 6 7 8 9
-}
-
 void load_sudoku(int *sudoku, char *filename) {
    int i, j;
    char line[256];
@@ -40,36 +33,16 @@ void display_sudoku(int * sudoku) {
 	}
 }
 
-void display_possibilities(int * possibilities) {
-	int i, j;
-	printf("\n\n\n");
-	for(i=0 ; i<GLOBAL_SIZE ; i++) {
-		for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
-			printf("%d ", *(possibilities+i*POSSIBILITY_LENGTH+j));
-		printf("\n");
-	}
-}
-
-int is_solved(int * sudoku) {
-	int i, j;
- 	for(i=0 ; i<LINE_LENGTH ; i++)
-		for(j=0 ; j<LINE_LENGTH ; j++)
-			if (sudoku[i*LINE_LENGTH+j] == 0)
-            return 0;
-   return 1;
-}
 
 int main(int argc, char** argv) {
    char * filename = argv[1];
    int sudoku[GLOBAL_SIZE];
-
-   int possibilities[GLOBAL_SIZE*(LINE_LENGTH+1)];
-   init_possibilities(possibilities);
-   display_possibilities(possibilities);
    load_sudoku(sudoku, filename);
    display_sudoku(sudoku);
-   while (!is_solved(sudoku) && solve_sudoku(sudoku, possibilities));
+   if (solve_sudoku(sudoku))
+      printf("\n\nSuccess:\n");
+   else
+      printf("\n\nFailure:\n");
    display_sudoku(sudoku);
-   display_possibilities(possibilities);
    return 0;
 }
