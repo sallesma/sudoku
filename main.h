@@ -4,5 +4,4 @@
 
 #define GLOBAL_SIZE 81
 #define LINE_LENGTH 9
-
-
+#define POSSIBILITY_LENGTH 10
