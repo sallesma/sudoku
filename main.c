@@ -1,9 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
-#define GLOBAL_SIZE 81
-#define LINE_LENGTH 9
+#include"main.h"
 
 void init_possibilities(int * p) {
 	int i, j;
@@ -62,32 +57,6 @@ int is_solved(int * sudoku) {
 			if (sudoku[i*LINE_LENGTH+j] == 0)
             return 0;
    return 1;
-}
-
-int parse_line(int * sudoku, int line, int column) {
-   return 0;
-}
-
-int parse_column(int * sudoku, int line, int column) {
-   return 0;
-}
-
-int parse_square(int * sudoku, int line, int column) {
-   return 0;
-}
-
-// should return 1 if the possibilities or sudoku have been updated
-int solve_sudoku(int * sudoku) {
-   int changed = 0;
-   int i, j;
- 	for(i=0 ; i<LINE_LENGTH ; i++)
-		for(j=0 ; j<LINE_LENGTH ; j++)
-         if (sudoku[i*LINE_LENGTH+j] == 0) {
-            changed += parse_line(sudoku, i, j);
-            changed += parse_column(sudoku, i, j);
-            changed += parse_square(sudoku, i, j);
-         }
-   return changed;
 }
 
 int main(int argc, char** argv) {
