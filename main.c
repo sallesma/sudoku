@@ -70,5 +70,6 @@ int main(int argc, char** argv) {
    display_sudoku(sudoku);
    while (!is_solved(sudoku) && solve_sudoku(sudoku, possibilities));
    display_sudoku(sudoku);
+   display_possibilities(possibilities);
    return 0;
 }
