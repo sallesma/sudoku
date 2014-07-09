@@ -2,14 +2,14 @@
 run: compile
 	./main sudoku_basic.txt
 
-compile: main.c solve.c
-	gcc -o main main.c solve.c
+compile:
+	gcc -o main src/main.c src/solve.c
 
-autocompile: main.c
-	while true; do inotifywait -e modify *.c *.h; gcc -o main main.c solve.c; done
+autocompile:
+	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c; done
 
-autorun: main.c
-	while true; do inotifywait -e modify *.c *.h; gcc -o main main.c solve.c; ./main sudoku_basic.txt; done
+autorun:
+	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c; ./main sudoku_basic.txt; done
 
 pull:
 	git pull origin master
