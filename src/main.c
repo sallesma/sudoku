@@ -1,4 +1,5 @@
-#include"main.h"
+#include"constants.h"
+#include"utils.h"
 
 void load_sudoku(int *sudoku, char *filename) {
    int i, j;

@@ -1,4 +1,5 @@
-#include"main.h"
+#include"utils.h"
+#include"constants.h"
 
 int is_solved(int * sudoku) {
 	int i, j;
@@ -12,7 +13,7 @@ int is_solved(int * sudoku) {
 int parse_line(int * sudoku, int line, int column, int * possibilities) {
    int changed = 0;
    int j;
-   for(j=0 ; j<LINE_LENGTH ; j++)
+for(j=0 ; j<LINE_LENGTH ; j++)
       if (sudoku[line*LINE_LENGTH+j] != 0)
          changed = remove_possibility(possibilities, line, column, sudoku[line*LINE_LENGTH+j]);
    return changed;

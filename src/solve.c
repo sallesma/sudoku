@@ -1,4 +1,5 @@
-#include"main.h"
+#include "constants.h"
+#include "utils.h"
 
 
 void init_possibilities(int * p) {
