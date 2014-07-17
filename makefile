@@ -1,16 +1,5 @@
-
-run: compile
-	./main sudoku_basic.txt
-
-compile: main.o solve.o utils.o
-	gcc -o main main.o solve.o utils.o
-
-#Broken since compile has changed
-#autocompile:
-#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c ; done
-#
-#autorun:
-#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c src/utils.c; ./main sudoku_basic.txt; done
+################
+# git commands
 
 pull:
 	git pull origin master
@@ -20,11 +9,36 @@ push:
 
 sync: pull push
 
-main.o: 
-	gcc -c src/main.c
 
-solve.o:
-	gcc -c src/solve.c
+######################
+# compilation commands
 
-utils.o:
-	gcc -c src/utils.c
+OUT = sudoku
+CC = gcc
+ODIR = obj
+SDIR = src
+
+_OBJS = main.o solve.o utils.o
+OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
+
+run:
+	./$(OUT) sudoku_basic.txt
+
+compile-run: compile
+	./$(OUT) sudoku_basic.txt
+
+compile: $(OBJS) 
+	$(CC) -o $(OUT) $(OBJS)
+
+$(ODIR)/%.o: $(SDIR)/%.c
+	$(CC) -c -o $@ $<
+
+clean:
+	rm -f $(ODIR)/*.o $(OUT)
+
+#Broken since compile has changed
+#autocompile:
+#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c ; done
+#
+#autorun:
+#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c src/utils.c; ./main sudoku_basic.txt; done
