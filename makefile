@@ -36,9 +36,8 @@ $(ODIR)/%.o: $(SDIR)/%.c
 clean:
 	rm -f $(ODIR)/*.o $(OUT)
 
-#Broken since compile has changed
-#autocompile:
-#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c ; done
-#
-#autorun:
-#	while true; do inotifywait -e modify src/*; gcc -o main src/main.c src/solve.c src/utils.c; ./main sudoku_basic.txt; done
+autocompile:
+	while true; do inotifywait -e modify src/*; make compile ; done
+
+autorun:
+	while true; do inotifywait -e modify src/*; make compile; make run; done
