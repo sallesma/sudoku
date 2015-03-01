@@ -34,11 +34,37 @@ void display_sudoku(int * sudoku) {
    }
 }
 
+int is_valid_value(int * sudoku, int line, int column)
+{
+   int i,j;
+   //Check line
+   for(j = 0 ; j < LINE_LENGTH ; j++)
+      if(j!=column && sudoku[line*LINE_LENGTH+j] == sudoku[line*LINE_LENGTH+column])
+         return 0;
+   //Check column
+   for(i = 0 ; i < LINE_LENGTH ; i++)
+      if(i!=line && sudoku[i*LINE_LENGTH+column] == sudoku[line*LINE_LENGTH+column])
+         return 0;
+   //Check square
+   int k, l;
+   i = line - line%3;
+   for(k=0 ; k<3 ; k++){
+      j = column - column%3;
+      for(l=0 ; l<3 ; l++) {
+         if (i != line && j != column && sudoku[i*LINE_LENGTH+j] == sudoku[line*LINE_LENGTH+column])
+            return 0;
+         j++;
+      }
+      i++;
+   }
+   return 1;
+}
+
 int is_solved(int * sudoku) {
    int i, j;
    for(i=0 ; i<LINE_LENGTH ; i++)
       for(j=0 ; j<LINE_LENGTH ; j++)
-         if (sudoku[i*LINE_LENGTH+j] == 0)
+         if (sudoku[i*LINE_LENGTH+j] == 0 || !is_valid_value(sudoku, i, j))
             return 0;
    return 1;
 }

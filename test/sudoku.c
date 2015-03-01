@@ -32,11 +32,21 @@ void test_load_sudoku(void)
 void test_is_solved(void)
 {
    int sudoku[GLOBAL_SIZE];
+
    load_sudoku(sudoku, "sudoku_basic.txt");
    CU_ASSERT_NOT_EQUAL(is_solved(sudoku), 1);
 
    load_sudoku(sudoku, "sudoku_solved.txt");
    CU_ASSERT_EQUAL(is_solved(sudoku), 1);
+
+   load_sudoku(sudoku, "sudoku_solved_errorcolumn.txt");
+   CU_ASSERT_NOT_EQUAL(is_solved(sudoku), 1);
+
+   load_sudoku(sudoku, "sudoku_solved_errorline.txt");
+   CU_ASSERT_NOT_EQUAL(is_solved(sudoku), 1);
+
+   load_sudoku(sudoku, "sudoku_solved_errorsquare.txt");
+   CU_ASSERT_NOT_EQUAL(is_solved(sudoku), 1);
 }
 
 int main()
