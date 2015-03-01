@@ -3,20 +3,20 @@
 
 
 void init_possibilities(int * p) {
-	int i, j;
- 	for(i=0 ; i<GLOBAL_SIZE ; i++)
-		for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
+   int i, j;
+   for(i=0 ; i<GLOBAL_SIZE ; i++)
+      for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
          p[i*POSSIBILITY_LENGTH+j] = (j+8)%LINE_LENGTH+1; //we want 9 1 2 3 4 5 6 7 8 9
 }
 
 void display_possibilities(int * possibilities) {
-	int i, j;
-	printf("\n\n\n");
-	for(i=0 ; i<GLOBAL_SIZE ; i++) {
-		for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
-			printf("%d ", *(possibilities+i*POSSIBILITY_LENGTH+j));
-		printf("\n");
-	}
+   int i, j;
+   printf("\n\n\n");
+   for(i=0 ; i<GLOBAL_SIZE ; i++) {
+      for(j=0 ; j<POSSIBILITY_LENGTH ; j++)
+         printf("%d ", *(possibilities+i*POSSIBILITY_LENGTH+j));
+      printf("\n");
+   }
 }
 
 int remove_possibility(int * possibilities, int line, int column, int value) {
@@ -50,8 +50,8 @@ int solve_sudoku(int * sudoku) {
    while (!is_solved(sudoku) && changed != 0) {
       changed = 0;
       int i, j;
- 	   for(i=0 ; i<LINE_LENGTH ; i++)
-	   	for(j=0 ; j<LINE_LENGTH ; j++)
+      for(i=0 ; i<LINE_LENGTH ; i++)
+         for(j=0 ; j<LINE_LENGTH ; j++)
             if (sudoku[i*LINE_LENGTH+j] == 0) {
                changed += parse_line(sudoku, i, j, possibilities);
                changed += parse_column(sudoku, i, j, possibilities);
@@ -61,5 +61,4 @@ int solve_sudoku(int * sudoku) {
    }
    return changed;
 }
-
 

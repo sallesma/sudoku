@@ -16,7 +16,7 @@ void load_sudoku(int *sudoku, char *filename) {
       record = strtok(line, ",");
      
       j = 0;
-		for(j=0 ; j<LINE_LENGTH ; j++) {
+      for(j=0 ; j<LINE_LENGTH ; j++) {
          sudoku[i*LINE_LENGTH+j] = atoi(record);
          record = strtok(NULL, ",");
       }
@@ -25,13 +25,13 @@ void load_sudoku(int *sudoku, char *filename) {
 }
 
 void display_sudoku(int * sudoku) {
-	int i, j;
-	printf("\n\n\n");
-	for(i=0 ; i<LINE_LENGTH ; i++) {
-		for(j=0 ; j<LINE_LENGTH ; j++)
-			printf("%d ", *(sudoku+i*LINE_LENGTH+j));
-		printf("\n");
-	}
+   int i, j;
+   printf("\n\n\n");
+   for(i=0 ; i<LINE_LENGTH ; i++) {
+      for(j=0 ; j<LINE_LENGTH ; j++)
+         printf("%d ", *(sudoku+i*LINE_LENGTH+j));
+      printf("\n");
+   }
 }
 
 

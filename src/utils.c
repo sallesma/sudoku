@@ -2,10 +2,10 @@
 #include"constants.h"
 
 int is_solved(int * sudoku) {
-	int i, j;
- 	for(i=0 ; i<LINE_LENGTH ; i++)
-		for(j=0 ; j<LINE_LENGTH ; j++)
-			if (sudoku[i*LINE_LENGTH+j] == 0)
+   int i, j;
+   for(i=0 ; i<LINE_LENGTH ; i++)
+      for(j=0 ; j<LINE_LENGTH ; j++)
+         if (sudoku[i*LINE_LENGTH+j] == 0)
             return 0;
    return 1;
 }
@@ -45,5 +45,4 @@ int parse_square(int * sudoku, int line, int column, int * possibilities) {
    }
    return changed;
 }
-
 
