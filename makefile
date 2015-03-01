@@ -18,7 +18,7 @@ CC = gcc
 ODIR = obj
 SDIR = src
 
-_OBJS = main.o solve.o utils.o
+_OBJS = main.o solve.o sudoku.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 run:
