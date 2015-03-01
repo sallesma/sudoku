@@ -7,7 +7,7 @@ The aim of this project is to make friend again with C.
 
 ### Installation
 
-You need inotify to run some of the make commands (such as autocompile and autorun)
+You need inotify to run some of the make commands (such as autocompile and autorun) and CUnit for the tests.
 
 ### Contribution
 
