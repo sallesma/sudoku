@@ -48,8 +48,8 @@ TESTOBJSLIB = $(patsubst %,$(ODIR)/%,$(_TESTOBJS))
 $(TESTODIR)/%.o: $(TESTDIR)/%.c
 	$(CC) -c -o $@ $<
 
-compile-test: compile $(TESTOBJS) 
-	$(CC) -Wall -o $(OUTTEST) $(TESTOBJS) $(TESTOBJSLIB) -lcunit
+compile-test: compile test/obj/main.o $(TESTOBJS) 
+	$(CC) -Wall -o $(OUTTEST) test/obj/main.o $(TESTOBJS) $(TESTOBJSLIB) -lcunit
 
 test: compile-test
 	./$(OUTTEST)
