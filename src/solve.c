@@ -78,7 +78,7 @@ int update_sudoku(int * sudoku, int * possibilities){
 }
 
 int solve_sudoku(int * sudoku) {
-   int possibilities[GLOBAL_SIZE*(LINE_LENGTH+1)];
+   int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
    init_possibilities(possibilities);
 
    int changed = 1;
