@@ -30,7 +30,10 @@ int main()
    }
 
    if (NULL == CU_add_test(pSuiteSolve, "test init_possibilities", test_init_possibilities)
-         || NULL == CU_add_test(pSuiteSolve, "test remove_possibility", test_remove_possibility))
+         || NULL == CU_add_test(pSuiteSolve, "test remove_possibility", test_remove_possibility)
+         || NULL == CU_add_test(pSuiteSolve, "test parse_line", test_parse_line)
+         || NULL == CU_add_test(pSuiteSolve, "test parse_column", test_parse_column)
+         || NULL == CU_add_test(pSuiteSolve, "test parse_square", test_parse_square))
    {
       CU_cleanup_registry();
       return CU_get_error();
