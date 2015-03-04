@@ -1,6 +1,7 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "sudoku.h"
+#include "solve.h"
 
 int main()
 {
@@ -8,16 +9,28 @@ int main()
    if (CUE_SUCCESS != CU_initialize_registry())
       return CU_get_error();
 
-   /* add a suite to the registry */
+   /* add suites to the registry */
    CU_pSuite pSuiteSudoku = CU_add_suite("Suite Sudoku", NULL, NULL);
    if (NULL == pSuiteSudoku) {
       CU_cleanup_registry();
       return CU_get_error();
    }
+   CU_pSuite pSuiteSolve = CU_add_suite("Suite Solve", NULL, NULL);
+   if (NULL == pSuiteSolve) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
 
-   /* add the tests to the suite */
+   /* add the tests to the suites */
    if (NULL == CU_add_test(pSuiteSudoku, "test load_sudoku", test_load_sudoku)
          || NULL == CU_add_test(pSuiteSudoku, "test is_solved", test_is_solved))
+   {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+
+   if (NULL == CU_add_test(pSuiteSolve, "test init_possibilities", test_init_possibilities)
+         || NULL == CU_add_test(pSuiteSolve, "test remove_possibility", test_remove_possibility))
    {
       CU_cleanup_registry();
       return CU_get_error();

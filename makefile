@@ -41,7 +41,7 @@ OUTTEST = test_sudoku
 TESTDIR = test
 TESTODIR = test/obj
 
-_TESTOBJS = sudoku.o
+_TESTOBJS = sudoku.o solve.o
 TESTOBJS = $(patsubst %,$(TESTODIR)/%,$(_TESTOBJS))
 TESTOBJSLIB = $(patsubst %,$(ODIR)/%,$(_TESTOBJS))
 
