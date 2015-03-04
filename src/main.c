@@ -1,6 +1,6 @@
 #include "constants.h"
 #include "sudoku.h"
-#include "solve.h"
+#include "basic.h"
 #include "exhaustive.h"
 
 int main(int argc, char** argv) {

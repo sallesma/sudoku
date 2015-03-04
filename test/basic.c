@@ -1,6 +1,5 @@
-#include "solve.h"
 #include "CUnit/CUnit.h"
-#include "../src/solve.h"
+#include "../src/basic.h"
 #include "../src/constants.h"
 #include "../src/sudoku.h"
 

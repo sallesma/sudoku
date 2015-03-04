@@ -1,6 +1,5 @@
-#include "exhaustive.h"
 #include "../src/exhaustive.h"
-#include "../src/solve.h"
+#include "../src/basic.h"
 #include "../src/constants.h"
 #include "../src/sudoku.h"
 #include "CUnit/CUnit.h"

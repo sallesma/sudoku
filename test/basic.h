@@ -1,5 +1,5 @@
-#ifndef SOLVE_TEST_H
-#define SOLVE_TEST_H
+#ifndef BASIC_TEST_H
+#define BASIC_TEST_H
 
 void test_init_possibilities(void);
 

@@ -1,5 +1,5 @@
-#ifndef SOLVE_H
-#define SOLVE_H
+#ifndef BASIC_H
+#define BASIC_H
 
 int init_possibilities(int* p);
 

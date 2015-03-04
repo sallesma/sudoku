@@ -1,6 +1,6 @@
 #include "constants.h"
 #include "sudoku.h"
-#include "solve.h"
+#include "basic.h"
 
 
 int get_first_empty(int * sudoku)

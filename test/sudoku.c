@@ -1,4 +1,3 @@
-#include "sudoku.h"
 #include "CUnit/CUnit.h"
 #include "../src/constants.h"
 #include "../src/sudoku.h"

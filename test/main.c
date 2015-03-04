@@ -1,7 +1,7 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "sudoku.h"
-#include "solve.h"
+#include "basic.h"
 #include "exhaustive.h"
 
 int main()
