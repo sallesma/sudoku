@@ -15,5 +15,8 @@ int parse_square(int* sudoku, int line, int column, int* possibilities);
 
 int update_sudoku(int* sudoku, int* possibilities);
 
-int solve_sudoku(int* sudoku);
+int auto_solve(int* sudoku, int* possibilities);
+
+int solve_sudoku_basic(int* sudoku);
+
 #endif

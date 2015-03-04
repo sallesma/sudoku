@@ -18,11 +18,14 @@ CC = gcc
 ODIR = obj
 SDIR = src
 
-_OBJS = main.o solve.o sudoku.o
+_OBJS = main.o solve.o exhaustive.o sudoku.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 run: compile
 	./$(OUT) sudoku_basic.txt
+
+run-exhaustive: compile
+	./$(OUT) sudoku_exhaustive.txt
 
 compile: $(OBJS) 
 	$(CC) -o $(OUT) $(OBJS)
@@ -41,7 +44,7 @@ OUTTEST = test_sudoku
 TESTDIR = test
 TESTODIR = test/obj
 
-_TESTOBJS = sudoku.o solve.o
+_TESTOBJS = sudoku.o solve.o exhaustive.o
 TESTOBJS = $(patsubst %,$(TESTODIR)/%,$(_TESTOBJS))
 TESTOBJSLIB = $(patsubst %,$(ODIR)/%,$(_TESTOBJS))
 

@@ -77,10 +77,8 @@ int update_sudoku(int * sudoku, int * possibilities){
    return changed;
 }
 
-int solve_sudoku(int * sudoku) {
-   int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
-   init_possibilities(possibilities);
-
+int auto_solve(int * sudoku, int * possibilities)
+{
    int changed = 1;
    while (!is_solved(sudoku) && changed != 0) {
       changed = 0;
@@ -97,3 +95,10 @@ int solve_sudoku(int * sudoku) {
    return changed;
 }
 
+
+int solve_sudoku_basic(int * sudoku) {
+   int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
+   init_possibilities(possibilities);
+
+   return auto_solve(sudoku, possibilities);
+}
