@@ -30,9 +30,9 @@ int remove_possibility(int * possibilities, int line, int column, int value) {
 int parse_line(int * sudoku, int line, int column, int * possibilities) {
    int changed = 0;
    int j;
-for(j=0 ; j<LINE_LENGTH ; j++)
-      if (sudoku[line*LINE_LENGTH+j] != 0)
-         changed = remove_possibility(possibilities, line, column, sudoku[line*LINE_LENGTH+j]);
+   for(j=0 ; j<LINE_LENGTH ; j++)
+         if (sudoku[line*LINE_LENGTH+j] != 0)
+            changed = remove_possibility(possibilities, line, column, sudoku[line*LINE_LENGTH+j]);
    return changed;
 }
 
@@ -94,7 +94,6 @@ int auto_solve(int * sudoku, int * possibilities)
    }
    return changed;
 }
-
 
 int solve_sudoku_basic(int * sudoku) {
    int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];

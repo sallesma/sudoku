@@ -34,8 +34,7 @@ void display_sudoku(int * sudoku) {
    }
 }
 
-int is_valid_value(int * sudoku, int line, int column)
-{
+int is_valid_value(int * sudoku, int line, int column) {
    int i,j;
    //Check line
    for(j = 0 ; j < LINE_LENGTH ; j++)
