@@ -7,12 +7,12 @@
 void test_get_first_empty(void)
 {
    int sudoku[GLOBAL_SIZE];
-   load_sudoku(sudoku, "sudoku_basic.txt");
+   load_sudoku(sudoku, "data/sudoku_basic.txt");
    
    int index = get_first_empty(sudoku);
    CU_ASSERT_EQUAL(index, 0);
 
-   load_sudoku(sudoku, "sudoku_solved.txt");
+   load_sudoku(sudoku, "data/sudoku_solved.txt");
    index = get_first_empty(sudoku);
    CU_ASSERT_EQUAL(index, GLOBAL_SIZE);
 }

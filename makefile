@@ -17,15 +17,16 @@ OUT = sudoku
 CC = gcc
 ODIR = obj
 SDIR = src
+DDIR = data
 
 _OBJS = main.o basic.o exhaustive.o sudoku.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 run: compile
-	./$(OUT) sudoku_basic.txt
+	./$(OUT) $(DDIR)/sudoku_basic.txt
 
 run-exhaustive: compile
-	./$(OUT) sudoku_exhaustive.txt
+	./$(OUT) $(DDIR)/sudoku_exhaustive.txt
 
 compile: $(OBJS) 
 	$(CC) -o $(OUT) $(OBJS)

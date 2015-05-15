@@ -45,7 +45,7 @@ void test_remove_possibility(void)
 void test_parse_line(void)
 {
    int sudoku[GLOBAL_SIZE];
-   load_sudoku(sudoku, "sudoku_basic.txt");
+   load_sudoku(sudoku, "data/sudoku_basic.txt");
 
    int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
    init_possibilities(possibilities);
@@ -93,7 +93,7 @@ void test_parse_line(void)
 void test_parse_column(void)
 {
    int sudoku[GLOBAL_SIZE];
-   load_sudoku(sudoku, "sudoku_basic.txt");
+   load_sudoku(sudoku, "data/sudoku_basic.txt");
 
    int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
    init_possibilities(possibilities);
@@ -141,7 +141,7 @@ void test_parse_column(void)
 void test_parse_square(void)
 {
    int sudoku[GLOBAL_SIZE];
-   load_sudoku(sudoku, "sudoku_basic.txt");
+   load_sudoku(sudoku, "data/sudoku_basic.txt");
 
    int possibilities[GLOBAL_SIZE*POSSIBILITY_LENGTH];
    init_possibilities(possibilities);

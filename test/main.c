@@ -83,16 +83,16 @@ int main()
 void test_functional(void)
 {
    int sudoku[GLOBAL_SIZE];
-   load_sudoku(sudoku, "sudoku_basic.txt");
+   load_sudoku(sudoku, "data/sudoku_basic.txt");
    
    CU_ASSERT(solve_sudoku_basic(sudoku));
    CU_ASSERT(solve_sudoku_exhaustive(sudoku));
 
-   load_sudoku(sudoku, "sudoku_exhaustive.txt");
+   load_sudoku(sudoku, "data/sudoku_exhaustive.txt");
    CU_ASSERT_FALSE(solve_sudoku_basic(sudoku));
    CU_ASSERT(solve_sudoku_exhaustive(sudoku));
 
-   load_sudoku(sudoku, "sudoku_empty.txt");
+   load_sudoku(sudoku, "data/sudoku_empty.txt");
    CU_ASSERT_FALSE(solve_sudoku_basic(sudoku));
    CU_ASSERT(solve_sudoku_exhaustive(sudoku));
 }
